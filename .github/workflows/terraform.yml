@@ -41,4 +41,15 @@ jobs:
         run: terraform plan -input=false
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -input=false
+        run: terraform apply -auto-approve -input=false    
+
+      # < 환경에 따른 Terraform 상태 파일의 분리 >
+
+      # - name: Environment/mgmt/backend 
+      #   run: cd Terraform/Environment/mgmt/backend;terraform init;terraform plan -input=false;terraform apply -auto-approve -input=false   
+      
+      # - name: Environment/dev/vpc
+      #   run: cd Terraform/Environment/dev/vpc;terraform init;terraform plan -var stage=dev;terraform apply -auto-approve -var stage=dev;
+        
+      # - name: Environment/prod/vpc
+      #   run: cd Terraform/Environment/prod/vpc;terraform init;terraform plan -var stage=prod;terraform apply -auto-approve -var stage=prod;
